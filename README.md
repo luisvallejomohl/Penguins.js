@@ -1,6 +1,7 @@
 # Penguins.js
 
 Shortening JS Code
+
 Penguins.js is a portable, easy to use JS library. It can shorten down your code ridiculously:
 HTML code:
 ```html
