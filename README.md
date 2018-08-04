@@ -4,7 +4,7 @@ Shortening JS Code
 
 Penguins.js is a portable, easy to use JS library. It can shorten down your code ridiculously:
 
-##Example
+## Example
 
 HTML code:
 ```html
