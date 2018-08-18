@@ -76,19 +76,43 @@ var PenguinsJS = function(selector){
 			return PenguinsJS(selector);
 		},
 		date: new Date(),
+		requestTo: function(URL){
+			var self = {};
+			self.async = true;
+			self.requestURL = URL;
+			self.type = selector;
+			self.send = function(i){
+				var request = new XMLHttpRequest();
+				var subject = this;
+				function funkytion(){
+					if(request.status == 200 && request.readyState == 4){
+						subject.onResponse();
+					};
+				};
+				request.onreadystatechange = funkytion;
+				request.open(subject.type, subject.requestURL, subject.async);
+				if(i == undefined){
+					request.send();
+				}else{
+					request.send(i);
+				};
+			};
+			return self;
+		},
 	};
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.0.1';
+		return 'v1.0.2';
 	},
-	name: 'v1.0.1',
+	name: 'v1.0.2',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.0.1',
+	fullName:'Penguins.js v1.0.2',
 	major: 1, 
 	minor: 0, 
-	patch: 1,
+	patch: 2,
 };
-var _ = PenguinsJS
+//Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
+var _ = PenguinsJS;
 var __ = _;
-var _PenguinsJS = PenguinsJS
+var _PenguinsJS = PenguinsJS;
