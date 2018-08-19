@@ -86,7 +86,7 @@ var PenguinsJS = function(selector){
 				var subject = this;
 				function funkytion(){
 					if(request.status == 200 && request.readyState == 4){
-						this.response = request.response;
+						self.response = request.response;
 						subject.onResponse();
 					};
 				};
@@ -104,14 +104,14 @@ var PenguinsJS = function(selector){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.0.2';
+		return 'v1.0.3';
 	},
-	name: 'v1.0.2',
+	name: 'v1.0.3',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.0.2',
+	fullName:'Penguins.js v1.0.3',
 	major: 1, 
 	minor: 0, 
-	patch: 2,
+	patch: 3,
 };
 //Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
 var _ = PenguinsJS;
