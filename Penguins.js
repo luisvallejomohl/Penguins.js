@@ -86,6 +86,7 @@ var PenguinsJS = function(selector){
 				var subject = this;
 				function funkytion(){
 					if(request.status == 200 && request.readyState == 4){
+						this.response = request.response;
 						subject.onResponse();
 					};
 				};
