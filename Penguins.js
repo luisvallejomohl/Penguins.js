@@ -128,4 +128,4 @@ try{
 	metadata.removeTag = function(name){
 		__('meta[name="' + name + '"]').set('outerHTML', '');
 	};
-}catch{};
+}catch(e){};
