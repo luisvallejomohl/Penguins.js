@@ -117,3 +117,15 @@ PenguinsJS.version = {
 var _ = PenguinsJS;
 var __ = _;
 var _PenguinsJS = PenguinsJS;
+try{
+	window.metadata = [];
+	for(var item = 0; item < $('meta').length; item++){
+		metadata.push($('meta')[item]);
+	};
+	metadata.addTag = function(name, value){
+		$('<META>').attr('NAME', name).attr('CONTENT', value).appendTo('head');
+	};
+	metadata.removeTag = function(name){
+		__('meta[name="' + name + '"]').set('outerHTML', '');
+	};
+}catch{};
