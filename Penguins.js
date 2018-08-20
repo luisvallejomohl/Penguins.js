@@ -106,12 +106,12 @@ PenguinsJS.version = {
 	toString: function(){
 		return 'v1.0.3';
 	},
-	name: 'v1.0.3',
+	name: 'v1.0.2',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.0.3',
+	fullName:'Penguins.js v1.0.2',
 	major: 1, 
 	minor: 0, 
-	patch: 3,
+	patch: 2,
 };
 //Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
 var _ = PenguinsJS;
