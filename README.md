@@ -7,7 +7,7 @@ Penguins.js is a portable, easy to use JS library. It can shorten down your code
 ## Example
 
 HTML code:
-```html
+```HTML
 <!DOCTYPE HTML>
 <HTML>
 <HEAD>
@@ -31,7 +31,7 @@ boringButton.onclick = function(){
 Same JS Code with Penguins.js:
 ```javascript
 _('#boringButton').onEvent('click', function(){
- _('body').addElement('p', 'newP', 'You clicked the boring button!');
+ _('body').addElement('p', 0, 'newP').set('innerHTML', 'You clicked the boring button!');
 };
 ```
 In this example, Penguins.js saves you from writing 3 extra lines of code!
