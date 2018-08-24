@@ -35,4 +35,4 @@ _('#boringButton').onEvent('click', function(){
 };
 ```
 In this example, Penguins.js saves you from writing 3 extra lines of code!
-[Documentation](/documentation.html)
+[Documentation](https://luisvallejomohl.github.io/Penguins.js/documentation.html)
