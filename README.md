@@ -1,8 +1,8 @@
 # Penguins.js
 
 Shortening JS Code\
-Get the lastest release [here!](penguins.js.org/Penguins.js)\
-View all releases on [GitHub](github.com/luisvallejomohl/Penguins.js/releases)
+Get the lastest release [here!](https://penguins.js.org/Penguins.js)\
+View all releases on [GitHub](https://github.com/luisvallejomohl/Penguins.js/releases)
 
 Penguins.js is a portable, easy to use JS library. It can shorten down your code ridiculously:
 
