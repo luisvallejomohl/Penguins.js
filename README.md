@@ -1,8 +1,8 @@
 # Penguins.js
 
-Shortening JS Code\
-Get the lastest release [here!](https://penguins.js.org/Penguins.js)\
-View all releases on [GitHub](https://github.com/luisvallejomohl/Penguins.js/releases)
+Shortening JS Code<br>
+Get the lastest release [here!](https://penguins.js.org/Penguins.js)<br>
+View all releases on [GitHub](https://github.com/luisvallejomohl/Penguins.js/releases)<br>
 
 Penguins.js is a portable, easy to use JS library. It can shorten down your code ridiculously:
 
@@ -37,4 +37,5 @@ _('#boringButton').onEvent('click', function(){
 };
 ```
 In this example, Penguins.js saves you from writing 3 extra lines of code!
-[Documentation](https://penguins.js.org/Penguins.js/documentation.html)
+
+[Documentation](https://penguins.js.org/documentation.html)
