@@ -104,6 +104,9 @@ var PenguinsJS = function(selector){
 			};
 			return self;
 		},
+		find(a){
+			return PenguinsJS(selector + ' ' + a);
+		}
 	};
 };
 PenguinsJS.version = {
