@@ -45,6 +45,7 @@ var PenguinsJS = function(selector){
 		toDOMNodeArray:function(){
 			var array = [];
 			for (var i = 0; i < s.length; i++) { 
+				s[i].toPenguinsJSObj = PenguinsJS(selector);
 				array.push(s[i]);
 			};
 			return array;
@@ -72,13 +73,13 @@ var PenguinsJS = function(selector){
 			};
 			return array;
 		},
+		date: new Date(),	
 		style:function(p, v){
 			for(var item = 0; item < s.length; item++){
 				s[item].style[p] = v;
 			};
 			return PenguinsJS(selector);
 		},
-		date: new Date(),
 		requestTo: function(URL){
 			var self = {};
 			self.async = true;
