@@ -12,7 +12,7 @@ var PenguinsJS = function(selector){
 	var s = document.querySelectorAll(selector);
 	return{
 		get toDOMNodeList(){
-			console.warn('__(\'...\').toDOMNodeList is deprecated. Use toDOMNodeArray instead.');
+			console.warn('__(\'...\').toDOMNodeList is deprecated. Use toDOMNodeList instead.');
 			return s;
 		},
 		set:function(a, v){
@@ -45,7 +45,6 @@ var PenguinsJS = function(selector){
 		toDOMNodeArray:function(){
 			var array = [];
 			for (var i = 0; i < s.length; i++) { 
-				s[i].toPenguinsJSObject = PenguinsJS(selector);
 				array.push(s[i]);
 			};
 			return array;
@@ -108,13 +107,13 @@ var PenguinsJS = function(selector){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.2.0';
+		return 'v1.1.0';
 	},
-	name: 'v1.2.0',
+	name: 'v1.1.0',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.2.0',
+	fullName:'Penguins.js v1.1.0',
 	major: 1, 
-	minor: 2, 
+	minor: 1, 
 	patch: 0,
 };
 //Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
