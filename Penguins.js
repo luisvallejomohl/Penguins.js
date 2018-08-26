@@ -111,14 +111,14 @@ var PenguinsJS = function(selector){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.1.1';
+		return 'v1.1.2';
 	},
-	name: 'v1.1.1',
+	name: 'v1.1.2',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.1.1',
+	fullName:'Penguins.js v1.1.2',
 	major: 1, 
 	minor: 1, 
-	patch: 1,
+	patch: 2,
 };
 //Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
 var _ = PenguinsJS;
