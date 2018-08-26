@@ -73,7 +73,7 @@ var PenguinsJS = function(selector){
 			};
 			return array;
 		},
-		get date: function(){
+		get date(){
 			console.warn('_(\'*\').date is deprecated. Use new Date() instead.');
 			return new Date();
 		},	
@@ -107,21 +107,22 @@ var PenguinsJS = function(selector){
 			};
 			return self;
 		},
-		find(a){
+		find: function(a){
 			return PenguinsJS(selector + ' ' + a);
-		}
+		},
+		selector: selector,
 	};
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.1.3';
+		return 'v1.2.0';
 	},
-	name: 'v1.1.3',
+	name: 'v1.2.0',
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.1.3',
+	fullName:'Penguins.js v1.2.0',
 	major: 1, 
-	minor: 1, 
-	patch: 3,
+	minor: 2, 
+	patch: 0,
 };
 //Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
 var _ = PenguinsJS;
