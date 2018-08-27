@@ -122,6 +122,10 @@ PenguinsJS.version = {
 	major: 1, 
 	minor: 2, 
 	patch: 0,
+	get name(){
+		console.warn('PenguinsJS.version.name is deprecated. Use PenguinsJS.version.toString() instead.');
+		return 'v1.2.0';
+	},
 };
 PenguinsJS.version.__defineGetter__('name', function(){
 	console.warn('PenguinsJS.version.name is deprecated. Use PenguinsJS.version.toString() instead.');
