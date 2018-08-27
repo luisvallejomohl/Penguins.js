@@ -11,10 +11,6 @@
 var PenguinsJS = function(selector){
 	var s = document.querySelectorAll(selector);
 	return{
-		get toDOMNodeList(){
-			console.warn('__(\'...\').toDOMNodeList is deprecated. Use toDOMNodeArray instead.');
-			return s;
-		},
 		set:function(a, v){
 			for(var item = 0; item < s.length; item++){
 				s[item][a] = v;
@@ -73,10 +69,6 @@ var PenguinsJS = function(selector){
 			};
 			return array;
 		},
-		get date(){
-			console.warn('_(\'*\').date is deprecated. Use new Date() instead.');
-			return new Date();
-		},	
 		style:function(p, v){
 			for(var item = 0; item < s.length; item++){
 				s[item].style[p] = v;
@@ -115,23 +107,14 @@ var PenguinsJS = function(selector){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.2.1';
+		return 'v2.0.0';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.2.1',
-	major: 1, 
-	minor: 2, 
-	patch: 1,
-	get name(){
-		console.warn('PenguinsJS.version.name is deprecated. Use PenguinsJS.version.toString() instead.');
-		return 'v1.2.1';
-	},
+	fullName:'Penguins.js v2.0.0',
+	major: 2, 
+	minor: 0, 
+	patch: 0,
 };
-PenguinsJS.version.__defineGetter__('name', function(){
-	console.warn('PenguinsJS.version.name is deprecated. Use PenguinsJS.version.toString() instead.');
-	return 'v1.2.0';
-});
-//Set _ the PenguinsJS, __ to _ and _PenguinsJS to PenguinsJS (in case of overwrite)
 var _ = PenguinsJS;
 var __ = _;
 var _PenguinsJS = PenguinsJS;
