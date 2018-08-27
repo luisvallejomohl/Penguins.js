@@ -115,16 +115,16 @@ var PenguinsJS = function(selector){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v1.2.0';
+		return 'v1.2.1';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v1.2.0',
+	fullName:'Penguins.js v1.2.1',
 	major: 1, 
 	minor: 2, 
-	patch: 0,
+	patch: 1,
 	get name(){
 		console.warn('PenguinsJS.version.name is deprecated. Use PenguinsJS.version.toString() instead.');
-		return 'v1.2.0';
+		return 'v1.2.1';
 	},
 };
 PenguinsJS.version.__defineGetter__('name', function(){
