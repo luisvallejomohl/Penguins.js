@@ -8,9 +8,13 @@
  * John Resig for inspiration
 ***********************************************************/
 
-var PenguinsJS = function(selector){
+var PenguinsJS = function(selector, context){
 	var s = document.querySelectorAll(selector);
+	if(typeof context == 'undefined'){
+		var context = null;
+	};
 	return{
+		context: context, 
 		set:function(a, v){
 			for(var item = 0; item < s.length; item++){
 				s[item][a] = v;
@@ -100,7 +104,21 @@ var PenguinsJS = function(selector){
 			return self;
 		},
 		find: function(a){
-			return PenguinsJS(selector + ' ' + a);
+			return PenguinsJS(selector + ' ' + a, selector);
+		},
+		playAudio: function(obj){
+			var audioElement = document.createElement('audio');
+			audioElement.autoplay = true;
+			if(obj.autoplay == false){
+				audioElement.autoplay = false;
+			};
+			audioElement.src = obj.at;
+			audioElement.controls = false;
+			if(obj.showControls = true){
+				audioElement.controls = true;
+			};
+			audioElement.volume = obj.volume;
+			document.body.appendChild(audioElement);
 		},
 		selector: selector,
 	};
