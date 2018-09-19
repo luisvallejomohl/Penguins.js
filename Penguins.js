@@ -110,10 +110,9 @@ var PenguinsJS = function(selector, context){
 			var audioElement = document.createElement('audio');
 			audioElement.autoplay = true;
 			if(obj.autoplay == false){
-				audioElement.autoplay = false;
+				audioElement.removeAttribute('autoplay');
 			};
-			audioElement.src = obj.at;
-			audioElement.controls = false;
+			audioElement.src = obj.source;
 			if(obj.showControls = true){
 				audioElement.controls = true;
 			};
@@ -125,13 +124,13 @@ var PenguinsJS = function(selector, context){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.0';
+		return 'v2.0.1';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.0',
+	fullName:'Penguins.js v2.0.1',
 	major: 2, 
 	minor: 0, 
-	patch: 0,
+	patch: 1,
 };
 var _ = PenguinsJS;
 var __ = _;
