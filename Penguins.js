@@ -124,13 +124,13 @@ var PenguinsJS = function(selector, context){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.1';
+		return 'v2.0.0';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.1',
+	fullName:'Penguins.js v2.0.0',
 	major: 2, 
 	minor: 0, 
-	patch: 1,
+	patch: 0,
 };
 var _ = PenguinsJS;
 var __ = _;
