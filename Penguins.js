@@ -55,9 +55,11 @@ var PenguinsJS = function(selector, context){
 				if(endCondition){
 					window.clearInterval(newInterval);
 				}else{
-					functio();
+					functio(item);
+					item++;
 				};
 			};
+			var item = 0;
 			var newInterval = setInterval(functi, timeInterval)
 		},
 		add:function(a, v){
@@ -85,12 +87,12 @@ var PenguinsJS = function(selector, context){
 			self.requestURL = URL;
 			self.type = selector;
 			self.send = function(i){
-				var request = new XMLHttpRequest();
+				var request = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 				var subject = this;
 				function funkytion(){
 					if(request.status == 200 && request.readyState == 4){
 						self.response = request.response;
-						subject.onResponse();
+						subject.onResponse(self.response);
 					};
 				};
 				request.onreadystatechange = funkytion;
@@ -124,13 +126,13 @@ var PenguinsJS = function(selector, context){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.0';
+		return 'v2.0.1';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.0',
+	fullName:'Penguins.js v2.0.1',
 	major: 2, 
 	minor: 0, 
-	patch: 0,
+	patch: 1,
 };
 var _ = PenguinsJS;
 var __ = _;
