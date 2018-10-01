@@ -126,13 +126,14 @@ var PenguinsJS = function(selector, context){
 };
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.1';
+		return 'v2.0.2-z';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.1',
+	fullName:'Penguins.js v2.0.2-z',
 	major: 2, 
 	minor: 0, 
-	patch: 1,
+	patch: 2,
+	pre: 'z'
 };
 (
     function()
@@ -144,59 +145,43 @@ PenguinsJS.version = {
         var ua = navigator.userAgent;
         var tem = [];
         var M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
-
-        //IE will be identified as 'Trident' and a different version number. The name must be corrected to 'Internet Explorer' and the correct version identified.
-        //ie correction
         if(/trident/i.test(M[1]))
         {
             tem = /\brv[ :]+(\d+.?\d*)/g.exec(ua) || [];
             browser = 'Internet Explorer';
             version = tem[1];
         }
-
-        //firefox
         else if(/firefox/i.test(M[1]))
         {
             tem = /\brv[ :]+(\d+.?\d*)/g.exec(ua) || [];
             browser = 'Firefox';
             version = tem[1];
         }
-
-        //safari
         else if(/safari/i.test(M[1]))
         {
             tem = ua.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
             browser = 'Safari';
             version = tem[1];
         }
-
         //If 'Chrome' is found, it may be another browser. 
         else if(M[1] === 'Chrome')
         {
-            //opera
             var temOpr = ua.match(/\b(OPR)\/(\d+.?\d*.?\d*.?\d*)/);
-            //edge
             var temEdge = ua.match(/\b(Edge)\/(\d+.?\d*)/);
-            //chrome
             var temChrome = ua.match(/\b(Chrome)\/(\d+.?\d*.?\d*.?\d*)/);
 
             //a genuine 'Chrome' reading will result from ONLY temChrome not being null.
             var genuineChrome = temOpr == null && temEdge == null && temChrome != null;
 
-            if(temOpr != null)
-            {
+            if(temOpr != null){
                 browser = temOpr[1].replace('OPR', 'Opera');
                 version = temOpr[2];
             }
-
-            if(temEdge != null)
-            {
+            if(temEdge != null){
                 browser = temEdge[1];
                 version = temEdge[2];
             }
-
-            if(genuineChrome)
-            {
+            if(genuineChrome){
                 browser = temChrome[1];
                 version = temChrome[2];
             }
