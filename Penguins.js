@@ -86,6 +86,9 @@ var PenguinsJS = function(selector, context){
 			self.async = true;
 			self.requestURL = URL;
 			self.type = selector;
+			self.on = function(e, n){
+				self.onresponse = n
+			};
 			self.send = function(i){
 				var request = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 				var subject = this;
