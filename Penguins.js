@@ -209,3 +209,7 @@ try{
 		__('meta[name="' + name + '"]').set('outerHTML', '');
 	};
 }catch(e){};
+
+Object.prototype.addProperty = function(name, value){
+	this[name] = value;
+} //Define Object.prototype.addProperty, even though it is not explicity part of the PenguinsJS object
