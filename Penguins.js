@@ -23,25 +23,29 @@ var PenguinsJS = function(selector, context){
 		},
 		addElement:function(tagName, voidity, ID){
 			if(voidity == 1){
-				ID
-					? for(var item = 0; item < s.length; item++){
+				if(typeof ID != 'undefined'){
+					for(var item = 0; item < s.length; item++){
 						s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\"/>';
 						return PenguinsJS('#' + ID);
 					}
-					: for(var item = 0; item < s.length; item++){
+				}else{
+					for(var item = 0; item < s.length; item++){
 						s[item].innerHTML += '<' + tagName + '/>';
 						return PenguinsJS(selector + ' ' + tagName + ':last-child')
-					};
+					}
+				}
 			}else{
-				ID
-					? for(var item = 0; item < s.length; item++){
+				if(typeof ID != 'undefined'){
+					for(var item = 0; item < s.length; item++){
 						s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\">' + '</' + tagName + '>';
 						return PenguinsJS('#' + ID);
 					}
-					: for(var item = 0; item < s.length; item++){
+				}else{
+					for(var item = 0; item < s.length; item++){
 						s[item].innerHTML += '<' + tagName + '></' + tagName + '>';
 						return PenguinsJS(selector + ' ' + tagName + ':last-child');
-					};
+					}
+				}
 			};
 		},
 		reload:function(){
@@ -141,14 +145,13 @@ var PenguinsJS = function(selector, context){
 PenguinsJS.reload = location.reload;
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.2-w';
+		return 'v2.0.2';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.2-w',
+	fullName:'Penguins.js v2.0.2',
 	major: 2, 
 	minor: 0, 
 	patch: 2,
-	pre: 'w'
 };
 
 function JSONAt(src, onerror){
@@ -240,3 +243,4 @@ try{
 Object.prototype.addProperty = function(name, value){
 	this[name] = value;
 } //Define Object.prototype.addProperty, even though it is not explicity part of the PenguinsJS object
+
