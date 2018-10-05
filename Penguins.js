@@ -140,14 +140,20 @@ PenguinsJS.version = {
 	patch: 2,
 	pre: 'w'
 };
-function JSONAt(src){
+
+function JSONAt(src, callback){
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
-		if(xht.readyState == 4 && xhr.status == 200)
-			return JSON.parse(xhr.response)
-		;
-	}
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      return callback(null, JSON.parse(xhr.response));      
+    }
+  };
+  
+  xhr.onerror = callback;
+  xhr.open("GET", src);
+  xhr.send();
 };
+
 (function(){
         var browser = '';
         var version = '';
