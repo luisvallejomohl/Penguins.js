@@ -33,7 +33,7 @@ boringButton.onclick = function(){
 Same JS Code with Penguins.js:
 ```javascript
 _('#boringButton').onEvent('click', function(){
- _('body').addElement('p', 0, 'newP').set('innerHTML', 'You clicked the boring button!');
+ _('body').addElement('p', 0).set('innerHTML', 'You clicked the boring button!');
 };
 ```
 In this example, Penguins.js saves you from writing 3 extra lines of code!
