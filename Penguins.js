@@ -23,15 +23,25 @@ var PenguinsJS = function(selector, context){
 		},
 		addElement:function(tagName, voidity, ID){
 			if(voidity == 1){
-				for(var item = 0; item < s.length; item++){
-					s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\"/>';
-					return PenguinsJS('#' + ID);
-				};
+				ID
+					? for(var item = 0; item < s.length; item++){
+						s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\"/>';
+						return PenguinsJS('#' + ID);
+					}
+					: for(var item = 0; item < s.length; item++){
+						s[item].innerHTML += '<' + tagName + '/>';
+						return PenguinsJS(selector + ' ' + tagName + ':last-child')
+					};
 			}else{
-				for(var item = 0; item < s.length; item++){
-					s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\">' + '</' + tagName + '>';
-					return PenguinsJS('#' + ID);
-				};
+				ID
+					? for(var item = 0; item < s.length; item++){
+						s[item].innerHTML += '<' + tagName + ' id=\"' + ID + '\">' + '</' + tagName + '>';
+						return PenguinsJS('#' + ID);
+					}
+					: for(var item = 0; item < s.length; item++){
+						s[item].innerHTML += '<' + tagName + '></' + tagName + '>';
+						return PenguinsJS(selector + ' ' + tagName + ':last-child');
+					};
 			};
 		},
 		reload:function(){
@@ -141,17 +151,18 @@ PenguinsJS.version = {
 	pre: 'w'
 };
 
-function JSONAt(src, callback){
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function(){
-    if(xhr.readyState == 4 && xhr.status == 200) {
-      return callback(null, JSON.parse(xhr.response));      
-    }
-  };
-  
-  xhr.onerror = callback;
-  xhr.open("GET", src);
-  xhr.send();
+function JSONAt(src, onerror){
+	var XHR = new XMLHttpRequest();
+	XHR.onreadystatechange = function(){
+		if(XHR.readyState == 4 && XHR.status == 200){
+			return JSON.parse(XHR.response);      
+		}
+	};
+	if(typeof onerror != 'undefined'){
+		XHR.onerror = onerror;
+	}
+	XHR.open("GET", src);
+	XHR.send();
 };
 
 (function(){
