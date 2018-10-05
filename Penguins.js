@@ -128,24 +128,30 @@ var PenguinsJS = function(selector, context){
 		selector: selector,
 	};
 };
+PenguinsJS.reload = location.reload;
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.2-x';
+		return 'v2.0.2-w';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.2-x',
+	fullName:'Penguins.js v2.0.2-w',
 	major: 2, 
 	minor: 0, 
 	patch: 2,
-	pre: 'x'
+	pre: 'w'
 };
-(
-    function()
-    {
+function JSONAt(src){
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(xht.readyState == 4 && xhr.status == 200)
+			return JSON.parse(xhr.response)
+		;
+	}
+};
+(function(){
         var browser = '';
         var version = '';
         var idString = '';
-
         var ua = navigator.userAgent;
         var tem = [];
         var M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
@@ -196,8 +202,8 @@ PenguinsJS.version = {
 		version:version,
 		fullName: browser + '/' + version
 	}
-    }
-)();
+    
+})();
 var _ = PenguinsJS;
 var __ = _;
 var _PenguinsJS = PenguinsJS;
