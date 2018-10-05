@@ -144,7 +144,7 @@ function JSONAt(src){
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
 		if(xht.readyState == 4 && xhr.status == 200)
-			return JSON.parse(xhr.response)
+			return JSON.parse(xhr.responseText)
 		;
 	}
 };
