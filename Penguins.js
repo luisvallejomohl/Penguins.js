@@ -171,62 +171,58 @@ function JSONAt(src, onerror){
 	XHR.open('GET', src);
 	XHR.send();
 };
-
-(function(){
-        var browser = '';
-        var version = '';
-        var idString = '';
-        var tem = [];
-        var a = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
-        if(/trident/i.test(a[1]))
-        {
-            tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
-            browser = 'Internet Explorer';
-            version = tem[1];
-        }
-        else if(/firefox/i.test(a[1]))
-        {
-            tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
-            browser = 'Firefox';
-            version = tem[1];
-        }
-        else if(/safari/i.test(a[1]))
-        {
-            tem = navigator.userAgent.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
-            browser = 'Safari';
-            version = tem[1];
-        }
-        //If 'Chrome' is found, it may be another browser. 
-        else if(a[1] === 'Chrome')
-        {
-            var temOpr = navigator.userAgent.match(/\b(OPR)\/(\d+.?\d*.?\d*.?\d*)/);
-            var temEdge = navigator.userAgent.match(/\b(Edge)\/(\d+.?\d*)/);
-            var temChrome = navigator.userAgent.match(/\b(Chrome)\/(\d+.?\d*.?\d*.?\d*)/);
-
-            //a genuine 'Chrome' reading will result from ONLY temChrome not being null.
-            var genuineChrome = temOpr == null && temEdge == null && temChrome != null;
-
-            if(temOpr != null){
-                browser = temOpr[1].replace('OPR', 'Opera');
-                version = temOpr[2];
-            }
-            if(temEdge != null){
-                browser = temEdge[1];
-                version = temEdge[2];
-            }
-            if(genuineChrome){
-                browser = temChrome[1];
-                version = temChrome[2];
-            }
-        }
-
-        window.browser = {
-		name: browser,
-		version:version,
-		fullName: browser + '/' + version
+if(true){
+	var browser = '';
+	var version = '';
+	var idString = '';
+	var tem = [];
+	var a = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
+	if(/trident/i.test(a[1])){
+		//Internet Explorer
+		tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
+		browser = 'Internet Explorer';
+		version = tem[1];
+	}else if(/firefox/i.test(a[1])){
+		//Firefox
+		tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
+		browser = 'Firefox';
+		version = tem[1];
+	}else if(/safari/i.test(a[1])){
+		//Safari
+		tem = navigator.userAgent.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
+		browser = 'Safari';
+		version = tem[1];
+	}
+	//If 'Chrome' is found, it may be another browser. 
+	else if(a[1] === 'Chrome'){
+		var temOpr = navigator.userAgent.match(/\b(OPR)\/(\d+.?\d*.?\d*.?\d*)/);
+		var temEdge = navigator.userAgent.match(/\b(Edge)\/(\d+.?\d*)/);
+		var temChrome = navigator.userAgent.match(/\b(Chrome)\/(\d+.?\d*.?\d*.?\d*)/);
+		//a genuine 'Chrome' reading will result from ONLY temChrome not being null.
+		var genuineChrome = temOpr == null && temEdge == null && temChrome != null;
+		if(temOpr != null){
+			//Opera
+			browser = temOpr[1].replace('OPR', 'Opera');
+			version = temOpr[2];
+		}
+		if(temEdge != null){
+			//Edge
+			browser = temEdge[1];
+			version = temEdge[2];
+		}
+		if(genuineChrome){
+			//Chrom(ium/e)
+			browser = temChrome[1];
+			version = temChrome[2];
+		}
+	}
+	window.browser = {
+	name: browser,
+	version:version,
+	fullName: browser + '/' + version
 	}
     
-})();
+}
 var _, __, _PenguinsJS = PenguinsJS;
 try{
 	window.metadata = [];
