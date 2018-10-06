@@ -149,13 +149,13 @@ PenguinsJS.ize = function(a){
 }
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.2';
+		return 'v2.0.3';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.2',
+	fullName:'Penguins.js v2.0.3',
 	major: 2, 
 	minor: 0, 
-	patch: 2,
+	patch: 3,
 };
 
 function JSONAt(src, onerror){
@@ -168,7 +168,7 @@ function JSONAt(src, onerror){
 	if(typeof onerror != 'undefined'){
 		XHR.onerror = onerror;
 	}
-	XHR.open("GET", src);
+	XHR.open('GET', src);
 	XHR.send();
 };
 
@@ -176,33 +176,32 @@ function JSONAt(src, onerror){
         var browser = '';
         var version = '';
         var idString = '';
-        var ua = navigator.userAgent;
         var tem = [];
-        var M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
-        if(/trident/i.test(M[1]))
+        var a = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i);
+        if(/trident/i.test(a[1]))
         {
-            tem = /\brv[ :]+(\d+.?\d*)/g.exec(ua) || [];
+            tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
             browser = 'Internet Explorer';
             version = tem[1];
         }
-        else if(/firefox/i.test(M[1]))
+        else if(/firefox/i.test(a[1]))
         {
-            tem = /\brv[ :]+(\d+.?\d*)/g.exec(ua) || [];
+            tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
             browser = 'Firefox';
             version = tem[1];
         }
-        else if(/safari/i.test(M[1]))
+        else if(/safari/i.test(a[1]))
         {
-            tem = ua.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
+            tem = navigator.userAgent.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
             browser = 'Safari';
             version = tem[1];
         }
         //If 'Chrome' is found, it may be another browser. 
-        else if(M[1] === 'Chrome')
+        else if(a[1] === 'Chrome')
         {
-            var temOpr = ua.match(/\b(OPR)\/(\d+.?\d*.?\d*.?\d*)/);
-            var temEdge = ua.match(/\b(Edge)\/(\d+.?\d*)/);
-            var temChrome = ua.match(/\b(Chrome)\/(\d+.?\d*.?\d*.?\d*)/);
+            var temOpr = navigator.userAgent.match(/\b(OPR)\/(\d+.?\d*.?\d*.?\d*)/);
+            var temEdge = navigator.userAgent.match(/\b(Edge)\/(\d+.?\d*)/);
+            var temChrome = navigator.userAgent.match(/\b(Chrome)\/(\d+.?\d*.?\d*.?\d*)/);
 
             //a genuine 'Chrome' reading will result from ONLY temChrome not being null.
             var genuineChrome = temOpr == null && temEdge == null && temChrome != null;
@@ -228,9 +227,7 @@ function JSONAt(src, onerror){
 	}
     
 })();
-var _ = PenguinsJS;
-var __ = _;
-var _PenguinsJS = PenguinsJS;
+var _, __, _PenguinsJS = PenguinsJS;
 try{
 	window.metadata = [];
 	for(var item = 0; item < $('meta').length; item++){
