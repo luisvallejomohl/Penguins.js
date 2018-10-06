@@ -12,3 +12,4 @@ Your contributions must follow the [Code of conduct](CODE_OF_CONDUCT.md). They s
    }
  }
  ```
+ - To localize variables, do not use `(function(){...})()`: Use `if(true){...}`
