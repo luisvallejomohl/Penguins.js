@@ -143,6 +143,10 @@ var PenguinsJS = function(selector, context){
 	};
 };
 PenguinsJS.reload = location.reload;
+PenguinsJS.ize = function(a){
+	a.id = Math.random(1, 10000000000000000000000000000);
+	return PenguinsJS('#' + a.id);
+}
 PenguinsJS.version = {
 	toString: function(){
 		return 'v2.0.2';
