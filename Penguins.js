@@ -105,7 +105,7 @@ var PenguinsJS = function(selector, context){
 				return self;
 			};
 			self.send = function(i){
-				var request = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+				var request = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'));
 				var subject = this;
 				function funkytion(){
 					if(request.status == 200 && request.readyState == 4){
@@ -160,16 +160,12 @@ PenguinsJS.version = {
 
 function JSONAt(src, onerror){
 	var XHR = new XMLHttpRequest();
-	XHR.onreadystatechange = function(){
-		if(XHR.readyState == 4 && XHR.status == 200){
-			return JSON.parse(XHR.response);      
-		}
-	};
 	if(typeof onerror != 'undefined'){
 		XHR.onerror = onerror;
 	}
-	XHR.open('GET', src);
+	XHR.open('GET', src, false);
 	XHR.send();
+	return JSON.parse(XHR.response)
 };
 if(true){
 	var browser = '';
