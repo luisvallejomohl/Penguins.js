@@ -16,9 +16,8 @@ var PenguinsJS = function(selector, context){
 	return{
 		context: context, 
 		set:function(a, v){
-			for(var item = 0; item < s.length; item++){
+			for(var item = 0; item < s.length; item++)
 				s[item][a] = v;
-			};
 			return PenguinsJS(selector);
 		},
 		addElement:function(tagName, voidity, ID){
@@ -52,9 +51,9 @@ var PenguinsJS = function(selector, context){
 			location.reload();
 		},
 		onEvent:function(e, f){
-			for(var item = 0; item < s.length; item++){
+			for(var item = 0; item < s.length; item++)
 				s[item].addEventListener(e, f);
-			};
+			
 		},
 		toDOMNodeArray:function(){
 			var array = [];
@@ -77,23 +76,27 @@ var PenguinsJS = function(selector, context){
 			var newInterval = setInterval(functi, timeInterval)
 		},
 		add:function(a, v){
-			for(var item = 0; item < s.length; item++){
+			for(var item = 0; item < s.length; item++)
 				s[item][v] += a;
-			};
+			
 			return PenguinsJS(selector);
 		},
 		get:function(a){
 			var array = [];
-			for(var item = 0; item < s.length; item++){
-				array.push(s[item][a]);
-			};
+			for(var item = 0; item < s.length; item++)
+				array.push(s[item][a])
+			
 			return array;
 		},
 		style:function(p, v){
-			for(var item = 0; item < s.length; item++){
+			for(var item = 0; item < s.length; item++)
 				s[item].style[p] = v;
-			};
+			
 			return PenguinsJS(selector);
+		},
+		remove:function(){
+			for(var item = 0; item < s.length; item++)
+				s[item].outerHTML = '';
 		},
 		requestTo: function(URL){
 			var self = {};
@@ -144,7 +147,7 @@ var PenguinsJS = function(selector, context){
 };
 PenguinsJS.reload = location.reload;
 PenguinsJS.ize = function(a){
-	a.id = Math.random(1, 10000000000000000000000000000);
+	a.id = Math.random() * 10000000000000000000000000000;
 	return PenguinsJS('#' + a.id);
 }
 PenguinsJS.version = {
@@ -168,7 +171,7 @@ function JSONAt(src, onerror){
 	return JSON.parse(XHR.response)
 };
 if(true){
-	var browser = '';
+	var _browser = '';
 	var version = '';
 	var idString = '';
 	var tem = [];
@@ -176,17 +179,17 @@ if(true){
 	if(/trident/i.test(a[1])){
 		//Internet Explorer
 		tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
-		browser = 'Internet Explorer';
+		_browser = 'Internet Explorer';
 		version = tem[1];
 	}else if(/firefox/i.test(a[1])){
 		//Firefox
 		tem = /\brv[ :]+(\d+.?\d*)/g.exec(navigator.userAgent) || [];
-		browser = 'Firefox';
+		_browser = 'Firefox';
 		version = tem[1];
 	}else if(/safari/i.test(a[1])){
 		//Safari
 		tem = navigator.userAgent.match(/\bVersion\/(\d+.?\d*\s*\w+)/);
-		browser = 'Safari';
+		_browser = 'Safari';
 		version = tem[1];
 	}
 	//If 'Chrome' is found, it may be another browser. 
@@ -198,28 +201,30 @@ if(true){
 		var genuineChrome = temOpr == null && temEdge == null && temChrome != null;
 		if(temOpr != null){
 			//Opera
-			browser = temOpr[1].replace('OPR', 'Opera');
+			_browser = temOpr[1].replace('OPR', 'Opera');
 			version = temOpr[2];
 		}
 		if(temEdge != null){
 			//Edge
-			browser = temEdge[1];
+			_browser = temEdge[1];
 			version = temEdge[2];
 		}
 		if(genuineChrome){
 			//Chrom(ium/e)
-			browser = temChrome[1];
+			_browser = temChrome[1];
 			version = temChrome[2];
 		}
 	}
 	window.browser = {
-	name: browser,
-	version:version,
-	fullName: browser + '/' + version
+		name: _browser,
+		version:version,
+		fullName: _browser + '/' + version
 	}
     
 }
-var _, __, _PenguinsJS = PenguinsJS;
+var _PenguinsJS = PenguinsJS;
+var _ = _PenguinsJS;
+var __ = _;
 try{
 	window.metadata = [];
 	for(var item = 0; item < $('meta').length; item++){
