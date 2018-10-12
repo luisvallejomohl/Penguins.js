@@ -152,13 +152,13 @@ PenguinsJS.ize = function(a){
 }
 PenguinsJS.version = {
 	toString: function(){
-		return 'v2.0.3';
+		return 'v2.0.4';
 	},
 	subjectName: 'Penguins.js',
-	fullName:'Penguins.js v2.0.3',
+	fullName:'Penguins.js v2.0.4',
 	major: 2, 
 	minor: 0, 
-	patch: 3,
+	patch: 4,
 };
 
 function JSONAt(src, onerror){
